@@ -1367,7 +1367,8 @@ public class ClassUtils {
      * @return Iterable an Iterable over the class hierarchy of the given class
      * @since 3.2
      */
-    public static Iterable<Class<?>> hierarchy(final Class<?> type) {
+    @SuppressWarnings("iteration:return")   // Iterator has next : Iterator guaranteed to have atleast one element
+    public static @HasNext Iterable<Class<?>> hierarchy(final Class<?> type) {
         return hierarchy(type, Interfaces.EXCLUDE);
     }
 
@@ -1379,6 +1380,7 @@ public class ClassUtils {
      * @return Iterable an Iterable over the class hierarchy of the given class
      * @since 3.2
      */
+    @SuppressWarnings("iteration:return")   // Iterator has next : Iterator guaranteed to have atleast one element
     public static @HasNext Iterable<Class<?>> hierarchy(final Class<?> type, final Interfaces interfacesBehavior) {
         final Iterable<Class<?>> classes = new Iterable<Class<?>>() {
 

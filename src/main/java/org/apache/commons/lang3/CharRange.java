@@ -255,7 +255,7 @@ final class CharRange implements Iterable<Character>, Serializable {
      * @since 2.5
      */
     @Override
-    public Iterator<Character> iterator() {
+    public Iterator<Character> iterator(CharRange this) {
         return new CharacterIterator(this);
     }
 
