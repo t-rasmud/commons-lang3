@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.checkerframework.chacker.iteration.qual.HasNext;
+import org.checkerframework.checker.iteration.qual.HasNext;
 
 /**
  * <p>Operates on classes without using reflection.</p>
