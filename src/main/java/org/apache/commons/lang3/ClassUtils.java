@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.mutable.MutableObject;
+import org.checkerframework.chacker.iteration.qual.HasNext;
 
 /**
  * <p>Operates on classes without using reflection.</p>
@@ -1378,7 +1379,7 @@ public class ClassUtils {
      * @return Iterable an Iterable over the class hierarchy of the given class
      * @since 3.2
      */
-    public static Iterable<Class<?>> hierarchy(final Class<?> type, final Interfaces interfacesBehavior) {
+    public static @HasNext Iterable<Class<?>> hierarchy(final Class<?> type, final Interfaces interfacesBehavior) {
         final Iterable<Class<?>> classes = new Iterable<Class<?>>() {
 
             @Override
@@ -1426,6 +1427,7 @@ public class ClassUtils {
                     }
 
                     @Override
+                    @SuppressWarnings("iteration:method.invocation")    // next implementation: call to next in Iterator implementation
                     public Class<?> next() {
                         if (interfaces.hasNext()) {
                             final Class<?> nextInterface = interfaces.next();
