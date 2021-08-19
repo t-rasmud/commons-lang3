@@ -792,7 +792,7 @@ public class MethodUtils {
      * @throws NullPointerException if the specified method is {@code null}
      * @since 3.2
      */
-    @SuppressWarnings("iteration:method.invocation")    // Iterator has next : Iterator (hierarchy) guaranteed to have atleast one element
+//    @SuppressWarnings("iteration:method.invocation")    // Iterator has next : Iterator (hierarchy) guaranteed to have atleast one element
     public static Set<Method> getOverrideHierarchy(final Method method, final Interfaces interfacesBehavior) {
         Validate.notNull(method);
         final Set<Method> result = new LinkedHashSet<>();

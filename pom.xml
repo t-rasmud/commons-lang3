@@ -554,7 +554,7 @@
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker-qual</artifactId>
-      <version>3.14.0</version>
+      <version>3.17.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.errorprone</groupId>
@@ -870,7 +870,7 @@
                 <path>
                   <groupId>org.checkerframework</groupId>
                   <artifactId>checker</artifactId>
-                  <version>3.14.0</version>
+                  <version>3.17.0</version>
                 </path>
               </annotationProcessorPaths>
               <annotationProcessors>
@@ -879,6 +879,9 @@
               </annotationProcessors>
               <compilerArgs>
                 <arg>"-AsuppressWarnings=contracts.conditional.postcondition,override.return"</arg>
+                <arg>-AwarnUnneededSuppressions</arg>
+                <arg>-Aannotations</arg>
+                <arg>-Anolocations</arg>
                 <!-- <arg>-Awarns</arg> --> <!-- -Awarns turns type-checking errors into warnings. -->
               </compilerArgs>
             </configuration>
@@ -889,7 +892,7 @@
         <dependency>
           <groupId>org.checkerframework</groupId>
           <artifactId>checker</artifactId>
-          <version>3.14.0</version>
+          <version>3.17.0</version>
         </dependency>
       </dependencies>
     </profile>

@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.checkerframework.checker.iteration.qual.HasNext;
+import org.checkerframework.checker.nonempty.qual.NonEmpty;
 
 /**
  * <p>Operates on classes without using reflection.</p>
@@ -1367,8 +1367,7 @@ public class ClassUtils {
      * @return Iterable an Iterable over the class hierarchy of the given class
      * @since 3.2
      */
-    @SuppressWarnings("iteration:return")   // Iterator has next : Iterator guaranteed to have atleast one element
-    public static @HasNext Iterable<Class<?>> hierarchy(final Class<?> type) {
+    public static @NonEmpty Iterable<Class<?>> hierarchy(final Class<?> type) {
         return hierarchy(type, Interfaces.EXCLUDE);
     }
 
@@ -1380,8 +1379,8 @@ public class ClassUtils {
      * @return Iterable an Iterable over the class hierarchy of the given class
      * @since 3.2
      */
-    @SuppressWarnings("iteration:return")   // Iterator has next : Iterator guaranteed to have atleast one element
-    public static @HasNext Iterable<Class<?>> hierarchy(final Class<?> type, final Interfaces interfacesBehavior) {
+    @SuppressWarnings("nonempty:return")   // next implementation: call to next in Iterator implementation
+    public static @NonEmpty Iterable<Class<?>> hierarchy(final Class<?> type, final Interfaces interfacesBehavior) {
         final Iterable<Class<?>> classes = new Iterable<Class<?>>() {
 
             @Override
